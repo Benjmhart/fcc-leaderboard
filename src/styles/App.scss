@@ -2,15 +2,11 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+  background-color: darkgreen;
+  height: 50px;
+  padding: 10px;
   color: white;
 }
 
@@ -22,7 +18,29 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.board {
+  width: 60vw; 
+  background-color: grey;
+  min-height: 20vh;
+  margin-left: 20vw;
+  margin-top: 20px;
+}
+.board-header {
+  @extend .App-header;
+}
+
+.board-control, .board-item {
+  display: flex;
+}
+
+.grid-item {
+  width:25%;
+  border-style:solid;
+  border-color: white;
+  border-width: 1px;
+  background-color: #d3d3d3;
+}
+
+.isEven {
+  background-color: #9a9a9a;
 }
