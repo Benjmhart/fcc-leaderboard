@@ -1,3 +1,5 @@
+
+
 .App {
   text-align: center;
 }
@@ -41,6 +43,17 @@
   background-color: #d3d3d3;
 }
 
+.avatar{
+  height: 20px;
+  width: 20px;
+  display: inline;
+}
+
 .isEven {
   background-color: #9a9a9a;
+}
+
+.control-30day:hover, .control-AllTime:hover {
+  background-color: #cacaca;
+
 }

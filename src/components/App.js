@@ -14,40 +14,50 @@ class App extends Component {
     this.populateBoardItems = this.populateBoardItems.bind(this);
     this.switchType = this.switchType.bind(this);
     this.state = {
-      sortType: 'last30',
-      campersLast30: [],
-      campersAllTime: []
+      sortType: 'recent',
+      alltime:[],
+      recent:[]
     }
   }
   getCampersByAllTime() {
-    console.log('trying to get campers by all time')
     //api call
     getCampers('https://fcctop100.herokuapp.com/api/fccusers/top/alltime')
-    .then(val => this.setState(prevState => {prevState.campersAllTime = val}));
+    .then(val => this.setState({ alltime: val }));
   }
   getCampersByLast30() {
-    console.log('trying to get campers by last 30')
     //api call
     getCampers('https://fcctop100.herokuapp.com/api/fccusers/top/recent')
-    .then(val => this.setState(prevState => {prevState.campersLast30 = val}));
+    .then(val => this.setState({ recent: val }));
     //populate state
   }
-  populateBoardItems(type) {
-    if (typeof type !== 'string') {console.log('populateboarditems: failed to pass a string')}
-    //map the state to the board item component
+  populateBoardItems() {
+    const relevantData = this.state[this.state.sortType];
+    let items= <p> no data</p>;
+    if (relevantData){
+      items = relevantData.map((prop, i) => {
+      prop.i = i;
+      return(<BoardItem prop={prop} i={i} key={i}/>)})
+    }
+    return items;
   }
 
   switchType() {
     //change the type
+    const type = (this.state.sortType==='alltime') ? 'recent' : 'alltime';
+    this.setState({ sortType: type })
   }
 
-  componentWillMount() {
+  componentDidMount() {
     //populate state by calling both getcampers functions.
     this.getCampersByAllTime();
     this.getCampersByLast30();
   }    
   
   render() {
+    
+
+    console.log('rendering')
+
     return (
       <div className="App">
         <header className="App-header">
@@ -55,11 +65,8 @@ class App extends Component {
         </header>
         <div className="board">
           <BoardHeader />
-          <BoardControl />
-          <BoardItem />
-          <BoardItem />
-          <BoardItem />
-          {/** call to populateBoardItems */}
+          <BoardControl sortType={this.state.sortType} switchType={this.switchType}/>
+          {this.populateBoardItems()}
         </div>
       </div>
     );
