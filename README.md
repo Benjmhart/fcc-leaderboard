@@ -1,3 +1,14 @@
+### hi there freeCodeCamp review folks
+
+if the service isn't already running, you can always run npm start or click the run button above to get the dev server started so 
+you can review my implementation of the leaderboard assignment 
+
+
+
+
+
+
+
 ### this boilerplate uses create-react app, but has already enabled Sass,  and created styles and components folders.   
 
 This is built specifically with FreeCodeCamp Sass/React challenges in mind.   allowing you to build out multiple files locally , and then git-clone or deploy the output into cloud9/AWS or glitch

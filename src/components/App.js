@@ -36,7 +36,7 @@ class App extends Component {
     if (relevantData){
       items = relevantData.map((prop, i) => {
       prop.i = i;
-      return(<BoardItem prop={prop} i={i} key={i}/>)})
+      return(<BoardItem prop={prop} key={i}/>)})
     }
     return items;
   }
