@@ -1,7 +1,7 @@
 {
   "name": "fcc-camper-leaderboard",
   "version": "0.1.0",
-  "homepage": "http://Benjmhart.github.io/fcc-leaderboard",
+  "homepage": "http://benjmhart.github.io/fcc-leaderboard",
   "private": true,
   "dependencies": {
     "font-awesome": "^4.7.0",
